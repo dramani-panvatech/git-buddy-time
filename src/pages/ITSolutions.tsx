@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { 
@@ -28,8 +28,12 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import PortfolioModal from '../components/PortfolioModal';
 
 const ITSolutions = () => {
+  const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string>('');
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -38,6 +42,119 @@ const ITSolutions = () => {
       offset: 100,
     });
   }, []);
+
+  // Sample portfolio data
+  const portfolioData = {
+    "Electronic Health Records (EHR)": [
+      {
+        id: "ehr-1",
+        title: "Regional Healthcare Network EHR",
+        description: "Complete EHR system for a 500+ bed hospital network with real-time patient data management and clinical decision support.",
+        image: "/api/placeholder/600/400",
+        category: "Healthcare",
+        technologies: ["React", "Node.js", "PostgreSQL", "HL7 FHIR", "AWS"],
+        features: [
+          "Real-time patient data synchronization",
+          "Clinical decision support system",
+          "HIPAA compliant data storage",
+          "Integration with 15+ medical devices",
+          "Multi-language support"
+        ],
+        results: [
+          "40% reduction in documentation time",
+          "99.9% system uptime achieved",
+          "100% HIPAA compliance maintained",
+          "25% improvement in patient care metrics"
+        ],
+        timeline: "18 months",
+        teamSize: "12 people",
+        status: "Live"
+      }
+    ],
+    "One Triage": [
+      {
+        id: "triage-1",
+        title: "AI-Powered Emergency Triage System",
+        description: "Intelligent triage system that automates patient prioritization and streamlines emergency department workflows.",
+        image: "/api/placeholder/600/400",
+        category: "Healthcare AI",
+        technologies: ["Python", "TensorFlow", "React", "FastAPI", "Redis"],
+        features: [
+          "Machine learning patient risk assessment",
+          "Automated document verification",
+          "Real-time queue management",
+          "Predictive wait time estimation",
+          "Mobile patient check-in"
+        ],
+        results: [
+          "60% faster patient processing",
+          "35% reduction in wait times",
+          "90% accuracy in risk prediction",
+          "50% decrease in manual paperwork"
+        ],
+        timeline: "12 months",
+        teamSize: "8 people",
+        status: "Live"
+      }
+    ],
+    "Revenue Cycle Management": [
+      {
+        id: "rcm-1",
+        title: "Comprehensive RCM Platform",
+        description: "End-to-end revenue cycle management solution for healthcare providers with automated billing and claims processing.",
+        image: "/api/placeholder/600/400",
+        category: "FinTech Healthcare",
+        technologies: ["Java", "Spring Boot", "Angular", "Oracle", "Kubernetes"],
+        features: [
+          "Automated claims processing",
+          "Real-time eligibility verification",
+          "Denial management system",
+          "Patient payment portal",
+          "Financial analytics dashboard"
+        ],
+        results: [
+          "45% increase in collection rates",
+          "30% reduction in claim denials",
+          "20% faster payment processing",
+          "99% billing accuracy achieved"
+        ],
+        timeline: "15 months",
+        teamSize: "10 people",
+        status: "Live"
+      }
+    ],
+    "Telemedicine Platforms": [
+      {
+        id: "tele-1",
+        title: "Enterprise Telemedicine Solution",
+        description: "Scalable telemedicine platform supporting video consultations, remote monitoring, and digital prescriptions.",
+        image: "/api/placeholder/600/400",
+        category: "Digital Health",
+        technologies: ["Vue.js", "WebRTC", "Node.js", "MongoDB", "Docker"],
+        features: [
+          "HD video consultations",
+          "IoT device integration",
+          "Digital prescription management",
+          "Appointment scheduling system",
+          "Patient health records"
+        ],
+        results: [
+          "500+ providers onboarded",
+          "50,000+ consultations completed",
+          "95% patient satisfaction rate",
+          "80% reduction in no-shows"
+        ],
+        timeline: "14 months",
+        teamSize: "15 people",
+        status: "Live"
+      }
+    ]
+  };
+
+  const handleLearnMore = (serviceTitle: string) => {
+    setSelectedService(serviceTitle);
+    setIsPortfolioOpen(true);
+  };
 
   const healthcareServices = [
     {
@@ -362,6 +479,13 @@ const ITSolutions = () => {
                     ))}
                   </ul>
                   
+                  <button 
+                    onClick={() => handleLearnMore(service.title)}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    Learn More
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -580,6 +704,14 @@ const ITSolutions = () => {
       </section>
 
       <Footer />
+      
+      {/* Portfolio Modal */}
+      <PortfolioModal 
+        isOpen={isPortfolioOpen}
+        onClose={() => setIsPortfolioOpen(false)}
+        serviceTitle={selectedService}
+        portfolioItems={portfolioData[selectedService as keyof typeof portfolioData] || []}
+      />
     </div>
   );
 };

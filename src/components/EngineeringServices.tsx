@@ -1,8 +1,9 @@
 import React from 'react';
-import { Brain, Database, Cloud, Box, Users, AppWindow, Bug, ArrowRight } from "lucide-react";
+import { Brain, Database, Cloud, Box, Users, AppWindow, Bug, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import LeftPanel from "../components/LeftPanel";
 
 type Service = {
@@ -121,30 +122,55 @@ const services: Service[] = [
 
 const EngineeringServices = () => {
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-br from-background via-background to-secondary/10">
+        <div className="min-h-screen flex flex-col lg:flex-row">
             
             {/* Sticky Left Sidebar */}
-            <aside className="lg:w-1/3 xl:w-1/4 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
+            <aside className="lg:w-1/3 xl:w-1/4 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-r border-border/50 bg-card/50 backdrop-blur-sm">
                 <div className="h-full flex flex-col">
                     <div className="flex-1 px-4 lg:px-6 py-6 lg:py-8">
                         <LeftPanel />
                     </div>
                     
-                    {/* Optional sidebar footer for desktop */}
-                    <div className="hidden lg:block px-6 py-4 border-t border-border/50">
-                        <p className="text-xs text-muted-foreground">
-                            Trusted by 200+ companies worldwide
-                        </p>
+                    {/* Stats section */}
+                    <div className="px-6 py-6 border-t border-border/50">
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-primary">200+</div>
+                                <div className="text-xs text-muted-foreground">Companies</div>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-primary">98%</div>
+                                <div className="text-xs text-muted-foreground">Success Rate</div>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <Sparkles className="h-3 w-3 text-primary" />
+                            <span>Trusted by industry leaders</span>
+                        </div>
                     </div>
                 </div>
             </aside>
 
             {/* Scrollable Main Content */}
-            <main className="flex-1 lg:overflow-y-auto">
+            <main className="flex-1 lg:overflow-y-auto bg-gradient-to-br from-background via-background/50 to-secondary/5">
                 <div className="container mx-auto px-4 py-8 lg:py-12">
                     
+                    {/* Header */}
+                    <div className="mb-12 text-center lg:text-left">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                            <Sparkles className="h-4 w-4" />
+                            <span>Premium Services</span>
+                        </div>
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                            Our Service Portfolio
+                        </h2>
+                        <p className="text-muted-foreground text-lg max-w-2xl lg:max-w-none">
+                            Comprehensive engineering solutions designed to accelerate your digital transformation
+                        </p>
+                    </div>
+                    
                     {/* Services Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                         {services.map((service, idx) => {
                             const Icon = service.icon;
                             const isHighlighted = service.inverted;
@@ -152,7 +178,7 @@ const EngineeringServices = () => {
                             return (
                                 <article
                                     key={service.title}
-                                    className="group cursor-pointer"
+                                    className="group"
                                     style={{
                                         animationDelay: `${idx * 100}ms`,
                                     }}
@@ -160,51 +186,51 @@ const EngineeringServices = () => {
                                     <Card className={`
                                         relative overflow-hidden h-full transition-all duration-500 ease-out
                                         ${isHighlighted 
-                                            ? 'bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 hover:border-primary/40' 
-                                            : 'bg-card hover:bg-accent/5 border-border hover:border-border/60'
+                                            ? 'bg-gradient-to-br from-primary/5 via-primary/3 to-accent/5 border-primary/20 hover:border-primary/40 shadow-lg shadow-primary/10' 
+                                            : 'bg-card hover:bg-accent/5 border-border hover:border-border/60 shadow-md'
                                         }
-                                        hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]
-                                        shadow-lg
+                                        hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer
                                     `}>
                                         
-                                        {/* Gradient Overlay for Highlighted Cards */}
+                                        {/* Premium glow effect for highlighted cards */}
                                         {isHighlighted && (
-                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 pointer-events-none" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                                         )}
                                         
                                         <CardHeader className="relative pb-4">
-                                            <div className="flex items-start justify-between mb-4">
+                                            <div className="flex items-start justify-between mb-6">
                                                 <div className={`
-                                                    p-3 rounded-2xl transition-all duration-300 group-hover:scale-110
+                                                    p-4 rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3
                                                     ${isHighlighted 
-                                                        ? 'bg-primary/10 text-primary border border-primary/20' 
-                                                        : 'bg-secondary/80 text-secondary-foreground border border-secondary/40'
+                                                        ? 'bg-primary/10 text-primary border border-primary/30 shadow-lg shadow-primary/20' 
+                                                        : 'bg-secondary text-secondary-foreground border border-secondary/40'
                                                     }
                                                 `}>
-                                                    <Icon className="h-6 w-6" />
+                                                    <Icon className="h-7 w-7" />
                                                 </div>
                                                 
                                                 {isHighlighted && (
-                                                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-medium">
+                                                    <Badge className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground border-0 shadow-md">
+                                                        <Sparkles className="h-3 w-3 mr-1" />
                                                         Featured
                                                     </Badge>
                                                 )}
                                             </div>
                                             
-                                            <div className="space-y-2">
+                                            <div className="space-y-3">
                                                 <CardTitle className={`
                                                     text-xl font-bold transition-colors duration-300
                                                     ${isHighlighted ? 'text-primary' : 'text-foreground group-hover:text-primary'}
                                                 `}>
                                                     {service.title}
                                                 </CardTitle>
-                                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                                <p className="text-muted-foreground leading-relaxed">
                                                     {service.description}
                                                 </p>
                                             </div>
                                         </CardHeader>
                                         
-                                        <CardContent className="relative pt-0">
+                                        <CardContent className="relative pt-0 space-y-6">
                                             <div className="space-y-3">
                                                 {service.bullets.map((bullet, bulletIdx) => (
                                                     <div 
@@ -214,11 +240,11 @@ const EngineeringServices = () => {
                                                             animationDelay: `${(idx * 100) + (bulletIdx * 50)}ms`,
                                                         }}
                                                     >
-                                                        <div className={`
-                                                            w-2 h-2 rounded-full transition-all duration-300 group-hover/item:scale-125
+                                                        <CheckCircle2 className={`
+                                                            h-4 w-4 transition-all duration-300 group-hover/item:scale-110
                                                             ${isHighlighted 
-                                                                ? 'bg-primary/60 group-hover/item:bg-primary' 
-                                                                : 'bg-muted-foreground/40 group-hover/item:bg-primary'
+                                                                ? 'text-primary/70 group-hover/item:text-primary' 
+                                                                : 'text-muted-foreground/60 group-hover/item:text-primary'
                                                             }
                                                         `} />
                                                         <span className="text-sm font-medium text-muted-foreground group-hover/item:text-foreground transition-colors duration-300">
@@ -228,18 +254,43 @@ const EngineeringServices = () => {
                                                 ))}
                                             </div>
                                             
-                                            {/* Subtle CTA */}
-                                            <div className="mt-6 pt-4 border-t border-border/50">
-                                                <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                                                    <span>Learn more</span>
-                                                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                                                </div>
+                                            {/* Enhanced CTA */}
+                                            <div className="pt-4 border-t border-border/50">
+                                                <Button 
+                                                    variant={isHighlighted ? "default" : "ghost"} 
+                                                    className={`
+                                                        w-full transition-all duration-300 group-hover:scale-105
+                                                        ${isHighlighted 
+                                                            ? 'bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg shadow-primary/25' 
+                                                            : 'hover:bg-primary hover:text-primary-foreground'
+                                                        }
+                                                    `}
+                                                >
+                                                    <span>Explore Service</span>
+                                                    <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                                                </Button>
                                             </div>
                                         </CardContent>
                                     </Card>
                                 </article>
                             );
                         })}
+                    </div>
+                    
+                    {/* Bottom CTA section */}
+                    <div className="mt-16 text-center">
+                        <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+                            <CardContent className="py-12">
+                                <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h3>
+                                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                                    Let's discuss how our engineering expertise can accelerate your digital transformation journey.
+                                </p>
+                                <Button size="lg" className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg">
+                                    Start Your Project
+                                    <ArrowRight className="h-5 w-5 ml-2" />
+                                </Button>
+                            </CardContent>
+                        </Card>
                     </div>
                     
                     {/* Bottom spacing for scroll comfort */}
