@@ -1,73 +1,171 @@
-# Welcome to your Lovable project
+# Panva Technology - Modernized Website
 
-## Project info
+A modern, responsive, and accessible website for Panva Technology built with React, TypeScript, and Bootstrap 5.
 
-**URL**: https://lovable.dev/projects/4881639a-9e09-4260-9ef5-92385ec93c08
+## 🚀 Features
 
-## How can I edit this code?
+### Modern Design & UX
+- **Clean, responsive layout** using Bootstrap 5
+- **Modern UI/UX patterns** with enhanced animations and transitions
+- **Gradient backgrounds** and modern card designs
+- **Improved typography** with better readability
+- **Enhanced visual hierarchy** with proper spacing and contrast
 
-There are several ways of editing your application.
+### Accessibility Improvements
+- **WCAG 2.1 compliant** with proper ARIA labels and roles
+- **Keyboard navigation** support throughout the site
+- **Screen reader friendly** with semantic HTML structure
+- **High contrast mode** support
+- **Reduced motion** support for users with vestibular disorders
+- **Focus indicators** for better keyboard navigation
 
-**Use Lovable**
+### Enhanced User Experience
+- **Smooth scrolling** navigation
+- **Interactive hero carousel** with auto-play and manual controls
+- **Form validation** with real-time feedback
+- **Loading states** and success messages
+- **Back-to-top button** with scroll-based visibility
+- **Mobile-first responsive design**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4881639a-9e09-4260-9ef5-92385ec93c08) and start prompting.
+### Performance Optimizations
+- **Lazy loading** for images
+- **Optimized animations** with CSS transforms
+- **Efficient state management** with React hooks
+- **Reduced bundle size** with proper imports
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Technology Stack
 
-**Use your preferred IDE**
+- **React 18** with TypeScript
+- **Bootstrap 5** for responsive design
+- **Lucide React** for modern icons
+- **AOS (Animate On Scroll)** for scroll animations
+- **Vite** for fast development and building
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📱 Responsive Design
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The website is fully responsive and optimized for:
+- **Desktop** (1200px+)
+- **Tablet** (768px - 1199px)
+- **Mobile** (320px - 767px)
 
-Follow these steps:
+## ♿ Accessibility Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Semantic HTML** structure
+- **ARIA labels** and roles
+- **Keyboard navigation** support
+- **Screen reader** compatibility
+- **High contrast** mode support
+- **Reduced motion** preferences
+- **Focus management** for interactive elements
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🎨 Design System
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Color Palette
+- **Primary**: #1e5ba8 (Blue)
+- **Secondary**: #f8f9fa (Light Gray)
+- **Success**: #28a745 (Green)
+- **Warning**: #ffc107 (Yellow)
+- **Danger**: #dc3545 (Red)
+- **Info**: #17a2b8 (Cyan)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Typography
+- **Font Family**: Inter, system fonts
+- **Line Height**: 1.6 for optimal readability
+- **Responsive font sizes** for different screen sizes
+
+### Components
+- **Modern cards** with hover effects
+- **Enhanced buttons** with gradients
+- **Improved forms** with validation
+- **Navigation** with dropdowns
+- **Hero section** with carousel
+
+## 🚀 Getting Started
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.tsx          # Modern navigation with accessibility
+│   ├── HeroSection.tsx     # Interactive carousel
+│   ├── AboutSection.tsx    # Company timeline and features
+│   ├── ServicesSection.tsx # IT solutions and services
+│   ├── ContactSection.tsx  # Contact form with validation
+│   └── Footer.tsx          # Footer with back-to-top
+├── pages/
+│   └── Index.tsx           # Main page layout
+├── index.css               # Modern CSS with design system
+└── App.tsx                 # App configuration
 ```
 
-**Edit a file directly in GitHub**
+## 🔧 Customization
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Colors
+Update CSS variables in `src/index.css`:
+```css
+:root {
+  --primary-color: #1e5ba8;
+  --primary-light: #4a7bc8;
+  --primary-dark: #144080;
+  /* ... other colors */
+}
+```
 
-**Use GitHub Codespaces**
+### Components
+Each component is modular and can be easily customized:
+- **Header**: Navigation structure and branding
+- **HeroSection**: Carousel content and styling
+- **AboutSection**: Company information and timeline
+- **ServicesSection**: Service offerings and features
+- **ContactSection**: Contact form and office information
+- **Footer**: Footer links and company information
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🌟 Key Improvements
 
-## What technologies are used for this project?
+### Before vs After
+- **Enhanced accessibility** with proper ARIA labels
+- **Modern animations** with smooth transitions
+- **Improved mobile experience** with better responsive design
+- **Better form handling** with validation and feedback
+- **Enhanced navigation** with keyboard support
+- **Modern visual design** with gradients and shadows
 
-This project is built with:
+### Performance
+- **Faster loading** with optimized assets
+- **Better SEO** with semantic HTML
+- **Improved Core Web Vitals** with efficient animations
+- **Mobile optimization** with responsive images
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📄 License
 
-## How can I deploy this project?
+This project is licensed under the MIT License.
 
-Simply open [Lovable](https://lovable.dev/projects/4881639a-9e09-4260-9ef5-92385ec93c08) and click on Share -> Publish.
+## 🤝 Contributing
 
-## Can I connect a custom domain to my Lovable project?
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test for accessibility and responsiveness
+5. Submit a pull request
 
-Yes, you can!
+## 📞 Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For support or questions about the website modernization, please contact:
+- **Email**: support@panvatech.com
+- **Phone**: 1-800-916-2459
